@@ -1,4 +1,4 @@
-package com.algaworks.algashop.gateway.ecommerce;
+package com.algaworks.algashop.gateway.admin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.algaworks.algashop.gateway.ecommerce;
+package com.algaworks.algashop.gateway.admin;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

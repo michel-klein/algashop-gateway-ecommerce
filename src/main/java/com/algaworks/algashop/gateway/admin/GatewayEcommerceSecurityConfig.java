@@ -1,13 +1,15 @@
-package com.algaworks.algashop.gateway.ecommerce;
+package com.algaworks.algashop.gateway.admin;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 
 @Configuration
+@EnableReactiveMethodSecurity
 public class GatewayEcommerceSecurityConfig {
 
     @Bean
@@ -15,8 +17,8 @@ public class GatewayEcommerceSecurityConfig {
         http.cors(Customizer.withDefaults())
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .authorizeExchange(authorize -> authorize
-                        .pathMatchers("/actuator/health").permitAll()
-                        .pathMatchers(HttpMethod.OPTIONS, "/api/**").permitAll()
+                        .pathMatchers("/actuator/**").permitAll()
+                        .pathMatchers(HttpMethod.OPTIONS,"/api/**").permitAll()
                         .pathMatchers("/api/**").authenticated()
                         .anyExchange().denyAll()
                 )
